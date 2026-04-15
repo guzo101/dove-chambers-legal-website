@@ -65,7 +65,7 @@ if (isHomePage) {
   document.body.classList.add("site-locked");
 
   const blockedControls = document.querySelectorAll(
-    "a, button, input, textarea, select, summary, .calendly-inline-widget, .office-tour-video"
+    "a, button, input, textarea, select, summary, .calendly-inline-widget"
   );
 
   blockedControls.forEach((element) => {
@@ -80,11 +80,6 @@ if (isHomePage) {
     if (element.tagName === "BUTTON" || element.tagName === "INPUT" || element.tagName === "TEXTAREA" || element.tagName === "SELECT") {
       element.setAttribute("disabled", "true");
       element.setAttribute("tabindex", "-1");
-    }
-
-    if (element.tagName === "VIDEO") {
-      element.pause();
-      element.removeAttribute("controls");
     }
 
     element.addEventListener("click", (event) => {
